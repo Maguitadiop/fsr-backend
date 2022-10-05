@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+<!--   
+   <context:component-scan base-package="com.lip6.services.*" />
+    <context:annotation-config/> -->
+
+<bean id="cdao1" class="com.lip6.daos.DAOContact"/>
+<bean id="contactService" class="com.lip6.services.ServiceContact"/>
+<bean id="contact1" class="com.lip6.entities.Contact">
+	<constructor-arg name="firstName" value="max"></constructor-arg>
+	<constructor-arg name="lastName" value="diop"></constructor-arg>
+	<constructor-arg name="email" value="max@gmail.com"></constructor-arg>
+	<property name="address"><ref bean ="add" /></property>
+	<property name="contactGroups">
+		<set>
+			<ref bean="groupe1"/>
+			<ref bean="groupe2"/>
+		</set>
+	</property>
+	<property name="phones">
+		<set>
+			<ref bean="phone1"/>
+			<ref bean="phone2"/>
+		</set>
+	</property>
+</bean>
+
+<bean id="add" class="com.lip6.entities.Address">
+	<constructor-arg name ="street" value="23 rue de poulet"/>
+	<constructor-arg name ="city" value="75018"/>
+	<constructor-arg name ="country" value="Paris"/>
+</bean>
+
+<bean id="phone1" class="com.lip6.entities.PhoneNumber">
+	<property name="PhoneNumber" value="0123654789"></property>
+	<property name="contact"><ref bean="contact1"/></property>
+</bean>
+
+<bean id="phone2" class="com.lip6.entities.PhoneNumber">
+	<property name="PhoneNumber" value="2564789614"></property>
+	<property name="contact"><ref bean="contact1"/></property>
+</bean>
+
+<bean id="groupe1" class="com.lip6.entities.ContactGroup">
+	<constructor-arg name="groupName" value="physique"></constructor-arg>
+</bean>
+
+<bean id="groupe2" class="com.lip6.entities.ContactGroup">
+	<constructor-arg name="groupName" value="chimie"></constructor-arg>
+</bean>
+
+</beans>
