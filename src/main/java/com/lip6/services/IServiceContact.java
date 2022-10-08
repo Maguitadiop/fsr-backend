@@ -1,5 +1,7 @@
 package com.lip6.services;
 
+import java.util.ArrayList;
+
 import com.lip6.entities.Contact;
 
 public interface IServiceContact {
@@ -14,7 +16,7 @@ public interface IServiceContact {
 	
 	public void updateContact(long id, String fname, String lname, String email);
 	
-	public void getContactByFirstName(String fname);
+	public ArrayList<Contact> getContactByFirstName(String fname);
 	
 	public void getContactByLastName(String lname);
 	

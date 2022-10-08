@@ -61,10 +61,6 @@ public class AddContactServlet extends HttpServlet {
 		IServiceContact cservice = (IServiceContact) context.getBean("contactService");
 		cservice.createContact((Contact) context.getBean("contact1"));
 		
-		Contact dao1 = (Contact)context.getBean("contact1");
-		System.out.println("Injection contact : " + dao1.toString());
-		
-		//getBean(pour récupérer de xml)
 		
 	}
 

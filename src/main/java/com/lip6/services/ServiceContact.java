@@ -63,7 +63,7 @@ public class ServiceContact implements IServiceContact{
 			System.out.println("Contact non modifié !");
 	}
 	
-	public void getContactByFirstName(String fname) {
+	public ArrayList<Contact> getContactByFirstName(String fname) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IDAOContact daof = (IDAOContact)context.getBean("cdao1");
 		ArrayList<Contact> contacts = daof.getContactByFirstName(fname);
@@ -72,6 +72,8 @@ public class ServiceContact implements IServiceContact{
 			System.out.println(contact.getLastName());
 			System.out.println(contact.getEmail());
 		}
+		
+		return contacts;
 		
 	}
 	
