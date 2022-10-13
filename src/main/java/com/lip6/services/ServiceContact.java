@@ -77,6 +77,15 @@ public class ServiceContact implements IServiceContact{
 		
 	}
 	
+	public ArrayList<Contact> getContactsList() {
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        IDAOContact daof = (IDAOContact)context.getBean("cdao1");
+        ArrayList<Contact> contacts = daof.getContacts();
+	
+        return contacts;
+	
+	}
+	
 	public void getContactByLastName(String lname) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IDAOContact daol = (IDAOContact)context.getBean("cdao1");

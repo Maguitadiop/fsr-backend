@@ -15,7 +15,7 @@ import com.lip6.services.ServiceContact;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/carnetContac")
+@RequestMapping("/carnetcontact/api/contact")
 public class ContactController {
 	
 	@Autowired
@@ -36,5 +36,11 @@ public class ContactController {
 		serviceContact.deleteContact(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	@GetMapping("/all")
+    public ResponseEntity<ArrayList<Contact>> getContacts() {
+        ArrayList<Contact> contacts = serviceContact.getContactsList();
+        return new ResponseEntity<>(contacts, HttpStatus.OK);
+    }
+	
 
 }
