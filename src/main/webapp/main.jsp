@@ -14,5 +14,7 @@
 <a href="rechercheContactEmail.jsp"><h1>Search Contact by email</h1></a>
 <a href="deleteContact.jsp"><h1>Delete a Contact by id</h1></a>
 <a href="updateContact.jsp"><h1>Update a Contact</h1></a>
+<a href="rechercheAllContacts.jsp"><h1>Search list of contact</h1></a>
+<a href="addadresse.jsp"><h1>Create a new address</h1></a>
 </body>
 </html>

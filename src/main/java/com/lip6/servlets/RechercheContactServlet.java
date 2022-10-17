@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.lip6.services.IServiceContact;
 import com.lip6.services.ServiceContact;
 
 /**
@@ -43,8 +47,11 @@ public class RechercheContactServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		
 		long id=Long.parseLong(request.getParameter("id"));
-		ServiceContact src=new ServiceContact();
-		src.getContact(id);
+		
+		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+	         
+	    IServiceContact cservice = (IServiceContact) context.getBean("contactService");
+		cservice.getContact(id);
 	}
 
 }

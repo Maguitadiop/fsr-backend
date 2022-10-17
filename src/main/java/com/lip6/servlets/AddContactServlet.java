@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.lip6.daos.DAOContact;
 import com.lip6.daos.IDAOContact;
 import com.lip6.entities.Contact;
 import com.lip6.services.IServiceContact;
-import com.lip6.services.ServiceContact;
 
 /**
  * Servlet implementation class AddContactServlet

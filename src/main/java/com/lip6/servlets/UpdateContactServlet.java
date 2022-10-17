@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.lip6.services.IServiceContact;
 import com.lip6.services.ServiceContact;
 
 /**
@@ -43,8 +47,10 @@ public class UpdateContactServlet extends HttpServlet{
 		String lname=request.getParameter("lname");
 		String email=request.getParameter("email"); 
 		
-		ServiceContact src=new ServiceContact();
-		src.updateContact(id, fname, lname, email);
+		 WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+         
+	    IServiceContact cservice = (IServiceContact) context.getBean("contactService");
+		cservice.updateContact(id, fname, lname, email);
 	}
 
 }

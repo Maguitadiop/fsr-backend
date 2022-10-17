@@ -17,15 +17,15 @@ import com.lip6.services.ServiceContact;
 /**
  * Servlet implementation class RechercheContactServlet
  */
-@WebServlet("/RechercheContactFNameServlet")
-public class RechercheContactFNameServlet extends HttpServlet {
+@WebServlet("/RechercheAllContactsServlet")
+public class RechercheAllContactsServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
 	 /**
      * @see HttpServlet#HttpServlet()
      */
-	public RechercheContactFNameServlet() {
+	public RechercheAllContactsServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -45,13 +45,11 @@ public class RechercheContactFNameServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		
-		String fname=request.getParameter("fname");
-		
+	
 		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
          
 	    IServiceContact cservice = (IServiceContact) context.getBean("contactService");
-		cservice.getContactByFirstName(fname);
+		cservice.getContacts();
 	}
 
 }

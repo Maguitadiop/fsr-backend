@@ -178,7 +178,7 @@ public class DAOContact implements IDAOContact {
 	}
 
 	public ArrayList<Contact> getContacts(){
-	       final String nativeQuery="SELECT * FROM contact ";
+	       final String nativeQuery="SELECT idContact, firstname, lastname, email, id_address  FROM contact ";
 	       EntityManager em = JpaUtil.getEmf().createEntityManager(); 
 	        ArrayList<Contact> contacts=(ArrayList<Contact>) em.createNativeQuery(nativeQuery, Contact.class).getResultList();
 	        em.close();
