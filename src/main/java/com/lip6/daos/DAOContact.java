@@ -1,3 +1,4 @@
+
 package com.lip6.daos;
 
 import java.sql.Connection;
@@ -29,7 +30,7 @@ public class DAOContact implements IDAOContact {
 	 * @return renvoit le nouveau contact
 	 */
 	@Override
-	public  boolean addContact(String firstname, String lastname, String email) {
+	public  boolean addContact(String firstname, String lastname, String email,String street, String country, String city, String zip) {
 		boolean success=false;
 		
 		EntityManager em = JpaUtil.getEmf().createEntityManager();
@@ -40,7 +41,7 @@ public class DAOContact implements IDAOContact {
 		contact.setLastName(lastname);
 		contact.setEmail(email);
 		
-		Address address = new Address("15 rue de la paix", "Paris", "75020");
+		Address address = new Address(street, city,zip ,country);
 		
 		PhoneNumber phone = new PhoneNumber("0655789541");
 		PhoneNumber phone2 = new PhoneNumber("0123654897");
@@ -178,7 +179,7 @@ public class DAOContact implements IDAOContact {
 	}
 
 	public ArrayList<Contact> getContacts(){
-	       final String nativeQuery="SELECT idContact, firstname, lastname, email, id_address  FROM contact ";
+	       final String nativeQuery="SELECT * FROM contact ";
 	       EntityManager em = JpaUtil.getEmf().createEntityManager(); 
 	        ArrayList<Contact> contacts=(ArrayList<Contact>) em.createNativeQuery(nativeQuery, Contact.class).getResultList();
 	        em.close();

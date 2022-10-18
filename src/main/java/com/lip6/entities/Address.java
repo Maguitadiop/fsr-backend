@@ -24,10 +24,11 @@ public class Address {
 		
 	}
 	
-	public Address(String street, String city, String country) {
+	public Address(String street, String city, String zip, String country) {
 		this.street = street;
 		this.city = city;
 		this.country = country;
+		this.zip = zip;
 	}
 	
 	public long getIdAddress() {

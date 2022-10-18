@@ -1,3 +1,4 @@
+
 package com.lip6.servlets;
 
 import java.io.IOException;
@@ -48,13 +49,17 @@ public class AddContactServlet extends HttpServlet {
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
 		String email=request.getParameter("email"); 
+		String street=request.getParameter("street");
+		String country =request.getParameter("country");
+		String city=request.getParameter("city");
+		String zip=request.getParameter("zip");
 		
 		String[] allBeanNames = context.getBeanDefinitionNames();
         for(String beanName : allBeanNames) {
             System.out.println(beanName + "******************");
         }
 		IDAOContact dao = (IDAOContact)context.getBean("cdao1");
-		dao.addContact(fname,lname,email);
+		dao.addContact(fname,lname,email,street,country,city,zip);
 		
 		IServiceContact cservice = (IServiceContact) context.getBean("contactService");
 		cservice.createContact((Contact) context.getBean("contact1"));

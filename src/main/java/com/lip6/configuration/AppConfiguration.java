@@ -3,6 +3,7 @@ package com.lip6.configuration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 //si je veux int�grer une config XML venant de mon legacy, j'utilise l'@ImportResource 
 //@ImportResource(locations = {"classpath:spring/app-context-xml.xml"})

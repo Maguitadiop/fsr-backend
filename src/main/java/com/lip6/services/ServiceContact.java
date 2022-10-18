@@ -1,5 +1,6 @@
 package com.lip6.services;
 
+import java.io.Console;
 import java.util.ArrayList;
 
 import org.springframework.context.ConfigurableApplicationContext;
@@ -81,7 +82,11 @@ public class ServiceContact implements IServiceContact{
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         IDAOContact daof = (IDAOContact)context.getBean("cdao1");
         ArrayList<Contact> contacts = daof.getContacts();
-	
+        for(Contact contact : contacts) {
+            System.out.println(contact.getFirstName());
+            System.out.println(contact.getLastName());
+            System.out.println(contact.getEmail());
+        }
         return contacts;
 	
 	}
@@ -108,15 +113,5 @@ public class ServiceContact implements IServiceContact{
 		}
 	}
 	
-	public ArrayList<Contact> getContacts(){
-	    ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        IDAOContact daog = (IDAOContact)context.getBean("cdao1");
-        ArrayList<Contact> contacts = daog.getContacts();
-        for(Contact contact : contacts) {
-            System.out.println(contact.getFirstName());
-            System.out.println(contact.getLastName());
-            System.out.println(contact.getEmail());
-        }
-        return contacts;
-	}
+	
 }

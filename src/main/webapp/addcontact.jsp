@@ -1,29 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <form method="post" action="AddContactServlet">
-		<table>
-			<tr>
-				<th><h2>Voici un premier exemple de composant web avec un servlet</h2></th>
-				<tr>
-					<td><i>first name: <input type="text" name="fname" size="25"></i></td>
-				</tr>
-				<tr>
-					<td><i>last name: <input type="text" name="lname" size="25"></i></td>
-				</tr>
-				<tr>
-					<td><i>email: <input type="text" name="email" size="25"></i></td>
-				</tr>
-				
-				<tr>
-					<td><input class="button" type="submit" value="Submit" /><input class="button" type="reset" value="Reset"></td>
-				</tr>
-			
-		</table>
-	</form>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">FirstName</label>
+      <input type="text" class="form-control" name ="fname" id="inputFirstName" placeholder="FirstName">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">LastName</label>
+      <input type="text" class="form-control" name ="lname"id="inputLastName" placeholder="LastName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Email</label>
+    <input type="text" class="form-control" name = "email" id="inputEmail" placeholder="exemple@tls">
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-6">
+      <label for="inputCity">Street</label>
+      <input type="text" class="form-control" name ="street" id="inputStreet">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" name ="city" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control" name ="country">
+        <option selected>Choose...</option>
+        <option>France</option>
+        <option>UK</option>
+        <option>USA</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" name ="zip" id="inputZip">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Contact</button>
+</form>
 </html>

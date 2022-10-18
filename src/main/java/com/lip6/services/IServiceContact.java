@@ -22,5 +22,5 @@ public interface IServiceContact {
 	
 	public void getContactByEmail(String email);
 	
-	public ArrayList<Contact> getContacts();
+	public ArrayList<Contact> getContactsList();
 }

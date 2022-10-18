@@ -51,7 +51,7 @@ public class AddAdresseServlet extends HttpServlet{
         String city=request.getParameter("city"); 
         String zip=request.getParameter("zip"); 
         
-        DAOAddress daoa = (DAOAddress )context.getBean("adao");
+        IDAOAddress daoa = (IDAOAddress )context.getBean("adao");
         daoa.addAddress(street, country, city, zip);
         
         

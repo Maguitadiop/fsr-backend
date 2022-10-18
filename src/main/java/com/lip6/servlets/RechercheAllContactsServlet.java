@@ -49,7 +49,7 @@ public class RechercheAllContactsServlet extends HttpServlet {
 		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
          
 	    IServiceContact cservice = (IServiceContact) context.getBean("contactService");
-		cservice.getContacts();
+		cservice.getContactsList();
 	}
 
 }
