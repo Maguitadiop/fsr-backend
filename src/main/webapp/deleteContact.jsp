@@ -9,7 +9,7 @@
 <form method="get" action="DeleteContactServlet">
 		<table>
 			<tr>
-				<th><h2>Reseignez vous l'id</h2></th>
+				<th><h2>Reseignez l'id</h2></th>
 				<tr>
 					<td><input type="hidden" name="action" value="delete"/></td>
 				</tr>
