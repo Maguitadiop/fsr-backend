@@ -49,7 +49,6 @@ public class DAOContact implements IDAOContact {
 		ContactGroup cg = new ContactGroup("MIAGE");
 		
 		phone.setContact(contact);
-		phone2.setContact(contact);
 		
 		contact.getPhones().add(phone);
 		contact.getPhones().add(phone2);

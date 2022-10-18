@@ -18,8 +18,18 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card bg-dark my-5">
+          <div class="card-body">
+            <h2 class="card-title text-center text-white py-3"> Ajout contact</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <form method="post" action="AddContactServlet">
-
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">FirstName</label>
@@ -56,6 +66,20 @@
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" name ="zip" id="inputZip">
     </div>
+  </div>
+    <div class="form-row">
+  <div class="form-group col-md-6">
+      <label for="inputCity">Phone Number</label>
+      <input type="text" class="form-control" name ="phoneNum" id="inputPhoneNum">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCity">Phone Kind</label>
+      <input type="text" class="form-control" name ="phoneKind" id="inputPhoneKind	">
+    </div>
+   </div>
+  <div class="form-group">
+    <label for="inputAddress">Contact Group</label>
+    <input type="text" class="form-control" name = "group" id="inputGroup" placeholder="Travail...">
   </div>
   <button type="submit" class="btn btn-primary">Add Contact</button>
 </form>

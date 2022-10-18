@@ -54,10 +54,7 @@ public class AddContactServlet extends HttpServlet {
 		String city=request.getParameter("city");
 		String zip=request.getParameter("zip");
 		
-		String[] allBeanNames = context.getBeanDefinitionNames();
-        for(String beanName : allBeanNames) {
-            System.out.println(beanName + "******************");
-        }
+	
 		IDAOContact dao = (IDAOContact)context.getBean("cdao1");
 		dao.addContact(fname,lname,email,street,country,city,zip);
 		

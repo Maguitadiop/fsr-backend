@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<html>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
@@ -16,34 +15,26 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="ISO-8859-1">
-<title>Delete contact</title>
+<title>Insert title here</title>
 </head>
+<body>
+
  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="card bg-dark my-5">
           <div class="card-body">
-            <h2 class="card-title text-center text-white py-3"> Suppression d'un contact</h2>
+            <h2 class="card-title text-center text-white py-3">Rechercher un contact par son Id/firstname/lastname/email</h2>
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item"><a href="rechercheContact.jsp" class="btn btn-info"> Rechercher par id</a></li>
+               <li class="list-inline-item"><a href="rechercheContactFName.jsp" class="btn btn-info"> Rechercher par firstname</a></li>
+              <li class="list-inline-item"><a href="rechercheContactLName.jsp" class="btn btn-info"> Rechercher par lastname</a></li>
+              <li class="list-inline-item"><a href="rechercheContactEmail.jsp" class="btn btn-info"> Rechercher par email</a></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-<form method="get" action="DeleteContactServlet">
-		<table>
-			<tr>
-				<th><h2>Reseignez vous l'id</h2></th>
-				<tr>
-					<td><input type="hidden" name="action" value="delete"/></td>
-				</tr>
-				<tr>
-					<td><i>id: <input type="text" name="id" size="25"></i></td>
-				</tr>
-				
-				
-				<tr>
-					<td><input class="button" type="submit" value="Supprimer" /></td>
-				</tr>
-		</table>
-	</form>
+</body>
 </html>
