@@ -57,6 +57,21 @@
       <input type="text" class="form-control" name ="zip" id="inputZip">
     </div>
   </div>
+  <div class="form-row">
+  <div class="form-group col-md-6">
+      <label for="inputCity">Phone Number</label>
+      <input type="text" class="form-control" name ="phoneNum" id="inputPhoneNum">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCity">Phone Kind</label>
+      <input type="text" class="form-control" name ="phoneKind" id="inputPhoneKind	">
+    </div>
+   </div>
+  <div class="form-group">
+    <label for="inputAddress">Contact Group</label>
+    <input type="text" class="form-control" name = "group" id="inputGroup" placeholder="Travail...">
+  </div>
+  
   <button type="submit" class="btn btn-primary">Add Contact</button>
 </form>
 </html>
