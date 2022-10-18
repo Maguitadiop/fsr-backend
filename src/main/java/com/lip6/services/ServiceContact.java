@@ -14,10 +14,10 @@ import com.lip6.entities.Contact;
 
 public class ServiceContact implements IServiceContact{
 	
-	public void createContact(String fname, String lname, String email) {
+	public void createContact(String fname, String lname, String email,String street,String city, String zip, String country,String phoneNum, String phoneKind, String group) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IDAOContact daoc = (IDAOContact)context.getBean("cdao1");
-		boolean ok=daoc.addContact(fname, lname, email);
+		boolean ok=daoc.addContact(fname, lname, email, street, city, zip, country, phoneNum,phoneKind,group);
 		if (ok)
 			System.out.println("Contact ajouté!");
 		else
@@ -54,10 +54,10 @@ public class ServiceContact implements IServiceContact{
 		System.out.println(okg.getEmail());
 	}
 	
-	public void updateContact(long id, String fname, String lname, String email) {
+	public void updateContact(long id, String fname, String lname, String email,String street, String country, String city, String zip, String phoneNum, String phoneKind, String group) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IDAOContact daou = (IDAOContact)context.getBean("cdao1");
-		boolean oku = daou.modifyContact(id, fname, lname, email);
+		boolean oku = daou.modifyContact(id, fname, lname, email,street, country, city, zip,phoneNum, phoneKind, group);
 		if(oku)
 			System.out.println("Contact modifié !");
 		else
@@ -112,6 +112,8 @@ public class ServiceContact implements IServiceContact{
 			System.out.println(contact.getEmail());
 		}
 	}
+
+    
 	
 	
 }

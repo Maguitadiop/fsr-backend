@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 public class PhoneNumber {
 	
@@ -20,14 +22,16 @@ public class PhoneNumber {
 	@JoinColumn(name="id_contact")
 	private Contact contact=null;
 	
-	public PhoneNumber() {
-		
-	}
-	public PhoneNumber(String phoneNumber) {
-		super();
-		PhoneNumber = phoneNumber;
-	}
-
+    public PhoneNumber() {
+            
+        }
+    	
+	public PhoneNumber(String phoneNum) {
+	    super();
+        this.PhoneNumber=phoneNum;
+        
+    }
+	
 	public long getIdPhone() {
 		return idPhone;
 	}

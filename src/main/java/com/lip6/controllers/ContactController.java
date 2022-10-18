@@ -37,8 +37,8 @@ public class ContactController {
 	    serviceContact.deleteContact(contactId);
 	}
 
-	@PutMapping("update/")
+	/*@PutMapping("update/")
 	public void updateContact(Contact c) {
 	    serviceContact.updateContact(c.getIdContact(), c.getFirstName(), c.getLastName(), c.getEmail());
-	}
+	}*/
 }

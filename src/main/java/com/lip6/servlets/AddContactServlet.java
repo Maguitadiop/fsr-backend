@@ -53,13 +53,16 @@ public class AddContactServlet extends HttpServlet {
 		String country =request.getParameter("country");
 		String city=request.getParameter("city");
 		String zip=request.getParameter("zip");
+		String phoneNum =request.getParameter("phoneNum");
+		String phoneKind = request.getParameter("phoneKind");
+		String grp = request.getParameter("group");
 		
 		String[] allBeanNames = context.getBeanDefinitionNames();
         for(String beanName : allBeanNames) {
             System.out.println(beanName + "******************");
         }
 		IDAOContact dao = (IDAOContact)context.getBean("cdao1");
-		dao.addContact(fname,lname,email,street,country,city,zip);
+		dao.addContact(fname,lname,email,street,country,city,zip,phoneNum,phoneKind,grp);
 		
 		IServiceContact cservice = (IServiceContact) context.getBean("contactService");
 		cservice.createContact((Contact) context.getBean("contact1"));

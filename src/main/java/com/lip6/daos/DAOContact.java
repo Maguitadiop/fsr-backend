@@ -30,7 +30,7 @@ public class DAOContact implements IDAOContact {
 	 * @return renvoit le nouveau contact
 	 */
 	@Override
-	public  boolean addContact(String firstname, String lastname, String email,String street, String country, String city, String zip) {
+	public  boolean addContact(String firstname, String lastname, String email,String street, String country, String city, String zip, String phoneNum, String phoneKind, String group) {
 		boolean success=false;
 		
 		EntityManager em = JpaUtil.getEmf().createEntityManager();
@@ -43,16 +43,17 @@ public class DAOContact implements IDAOContact {
 		
 		Address address = new Address(street, city,zip ,country);
 		
-		PhoneNumber phone = new PhoneNumber("0655789541");
-		PhoneNumber phone2 = new PhoneNumber("0123654897");
 		
-		ContactGroup cg = new ContactGroup("MIAGE");
+		PhoneNumber phone = new PhoneNumber(phoneNum);
+		phone.setPhoneKind(phoneKind);
+		
+		
+		ContactGroup cg = new ContactGroup(group);
 		
 		phone.setContact(contact);
-		phone2.setContact(contact);
+		
 		
 		contact.getPhones().add(phone);
-		contact.getPhones().add(phone2);
 		
 		cg.getContacts().add(contact);
 		contact.getContactGroup().add(cg);
@@ -135,7 +136,7 @@ public class DAOContact implements IDAOContact {
 	 * @return
 	 */
 	@Override
-	public boolean modifyContact(long id, String firstname, String lastname, String email) {
+	public boolean modifyContact(long id, String firstname, String lastname, String email,String street, String country, String city, String zip, String phoneNum, String phoneKind, String group) {
 		boolean success = true;
 	    EntityManager em = JpaUtil.getEmf().createEntityManager();
 	    em.getTransaction().begin();
@@ -143,6 +144,19 @@ public class DAOContact implements IDAOContact {
 	    c.setFirstName(firstname);
 	    c.setLastName(lastname);
 	    c.setEmail(email);
+	    c.getAddress().setStreet(street);
+	    c.getAddress().setCity(city);
+	    c.getAddress().setZip(zip);
+	    c.getAddress().setCountry(country);
+	    
+	    PhoneNumber p = new PhoneNumber(phoneNum);
+	    p.setPhoneKind(phoneKind);
+	    
+	    c.getPhones().add(p);
+	    p.setContact(c);
+	    
+	    c.getContactGroup().add(new ContactGroup(group));
+	    
 	    em.getTransaction().commit();
 	    em.close();
 		return success;

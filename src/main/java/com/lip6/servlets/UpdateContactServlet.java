@@ -42,15 +42,22 @@ public class UpdateContactServlet extends HttpServlet{
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		long id=Long.parseLong(request.getParameter("id"));
+		long id=Long.parseLong(request.getParameter("contactId"));
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
-		String email=request.getParameter("email"); 
+		String email=request.getParameter("email");
+		String street=request.getParameter("street");
+        String country =request.getParameter("country");
+        String city=request.getParameter("city");
+        String zip=request.getParameter("zip");
+        String phoneNum =request.getParameter("phoneNum");
+        String phoneKind = request.getParameter("phoneKind");
+        String grp = request.getParameter("group");
 		
 		 WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
          
 	    IServiceContact cservice = (IServiceContact) context.getBean("contactService");
-		cservice.updateContact(id, fname, lname, email);
+		cservice.updateContact(id, fname, lname, email,street,country,city,zip,phoneNum,phoneKind,grp);
 	}
 
 }

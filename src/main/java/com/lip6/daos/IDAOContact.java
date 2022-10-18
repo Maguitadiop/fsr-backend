@@ -6,7 +6,7 @@ import com.lip6.entities.Contact;
 
 public interface IDAOContact {
 
-	public boolean addContact(String firstname, String lastname, String email, String street, String country, String city, String zip);
+	public boolean addContact(String firstname, String lastname, String email, String street, String country, String city, String zip, String phoneNum, String phoneKind, String group);
 	
 	public boolean addContact(Contact c);
 	
@@ -16,7 +16,7 @@ public interface IDAOContact {
 	
 	public ArrayList<Contact> getContacts();
 	
-	public boolean modifyContact(long id, String firstname, String lastname, String email);
+	public boolean modifyContact(long id, String firstname, String lastname, String email,String street, String country, String city, String zip, String phoneNum, String phoneKind, String group);
 	
 	public ArrayList<Contact> getContactByFirstName(String firstname);
 	
